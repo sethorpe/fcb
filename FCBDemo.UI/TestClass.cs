@@ -27,7 +27,7 @@ namespace FCBDemo.UI
         public By Solutions = By.CssSelector("body > header > div > div.fcb-header__nav-desktop > ul > li:nth-child(3) > div > a:nth-child(1) > svg");
         public By CBTileWrapper = By.XPath("//div[@class=\"fcb-tg__tile-wrapper  \"]");
         public By SolutionsTiles = By.XPath("//div[@class=\"fcb-tg__tile-wrapper  \"]//a[@class=\"fcb-tile\"]");
-        public By TileTitles = By.XPath("//h3[@class=\"fcb-tile__title fcb-tile__title--long\"]//span[@class=\"fcb-tile__title-text\"]");
+        public By TileTitles = By.XPath("//h3[@class=\"fcb-tile__title fcb-tile__title--long\"]");
 
         [SetUp]
         public void RunBeforeAll()
@@ -105,10 +105,6 @@ namespace FCBDemo.UI
             Thread.Sleep(5000);
             IList<IWebElement> solutions = driver.FindElements(TileTitles);
             Console.WriteLine($"The count of tiles is: {solutions.Count}");
-            foreach (IWebElement solution in solutions)
-            {
-                Console.WriteLine(solution.Text);
-            }
             return solutions.Count;
 
         }
